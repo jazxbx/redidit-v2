@@ -10,7 +10,7 @@ export default function DisplayPost({ post }) {
 
   const canEdit = user && user.id === post.userId;
   // console.log(user.userId, post.userId);
-  // console.log(post);
+  console.log(post);
 
   return (
     <>
@@ -50,6 +50,7 @@ export default function DisplayPost({ post }) {
                   text={childPost.text}
                   username={childPost.user.username}
                   children={childPost.children}
+                  post={childPost.post}
                 />
               );
             })}

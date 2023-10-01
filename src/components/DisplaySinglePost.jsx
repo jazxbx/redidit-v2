@@ -30,7 +30,7 @@ export default function DisplaySinglePost() {
 
   return (
     <>
-      <div></div>
+      <div>{post.title}</div>
     </>
   );
 }
