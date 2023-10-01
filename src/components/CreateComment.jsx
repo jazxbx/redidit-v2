@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
 import { API } from "../lib";
 
-export default function CreateComment({ postId, subredditId, fetchChildren }) {
+export default function CreateComment({ postId, subredditId, fetchPost }) {
   const { token, fechPosts, posts } = useOutletContext();
   // const { postId } = useParams();
-  console.log(postId);
 
-  console.log(posts);
+  // console.log(posts);
 
   const [title, setTitle] = useState("child");
   const [text, setText] = useState("");
@@ -39,14 +38,15 @@ export default function CreateComment({ postId, subredditId, fetchChildren }) {
     }
 
     setText("");
-    // fechPosts();
-    fetchChildren();
+    fetchPost();
   }
-
+  console.log(text);
+  console.log("postId:", postId);
   return (
     <div>
       <form className="comment-form" onSubmit={handleSubmit}>
         <div>
+          <p>Commenting not working atm..</p>
           <input
             className="comment-input"
             type="text"
@@ -59,7 +59,7 @@ export default function CreateComment({ postId, subredditId, fetchChildren }) {
           <button>Submit Comment</button>
         </div>
       </form>
-      <p>{error}</p>
+      {/* <p>{error}</p> */}
     </div>
   );
 }

@@ -18,7 +18,7 @@ export default function DisplayPost({ post }) {
 
   const canEdit = user && user.id === post.userId;
   // console.log(user.userId, post.userId);
-  console.log(post);
+  // console.log(post);
 
   return (
     <>
@@ -57,7 +57,7 @@ export default function DisplayPost({ post }) {
                   <DisplayComment
                     key={childPost.id}
                     text={childPost.text}
-                    // username={childPost.user.username}
+                    username={childPost.user.username}
                     children={childPost.children}
                     post={childPost.post}
                   />
