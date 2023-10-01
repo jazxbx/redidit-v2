@@ -29,8 +29,16 @@ export default function DisplaySinglePost() {
   if (!post) return <p>Loading...</p>;
 
   return (
-    <>
-      <div>{post.title}</div>
-    </>
+    <div className="post-container">
+      <div>
+        <p>🤮</p>
+      </div>
+      <div className="post-content">
+        <div className="post-header">r/{post.subreddit.name}</div>
+        <div>{post.title}</div>
+        <p>u/{post.user.username}</p>
+        <div>{post.text}</div>
+      </div>
+    </div>
   );
 }
