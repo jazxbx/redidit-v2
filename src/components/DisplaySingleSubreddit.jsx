@@ -1,7 +1,5 @@
 import { Link, useParams } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
-import styles from "./singleSubreddit.module.css";
-import DeleteSubreddit from "./DeleteSubreddit";
 
 export default function DisplaySingleSubreddit() {
   const { subreddits, posts } = useOutletContext();
@@ -16,25 +14,25 @@ export default function DisplaySingleSubreddit() {
   );
 
   return (
-    <div>
+    <div className="center">
       <div>
         {filteredPosts.length === 0 ? (
           <div>
-            <p>Subreddit empty, create a post!</p>
-            <Link to={"/submit"}>
-              <button>Post</button>
+            <h1>Subreddit empty, create a post!</h1>
+            <Link to={"/create/post"}>
+              <button className="create-subreddit">Post</button>
             </Link>
           </div>
         ) : (
-          <div>
+          <div className="subreddit-container">
             <div>
               <h1>r/{findSubreddit.name}</h1>
               {filteredPosts.map((post) => (
                 <div key={post.id}>
-                  <div>
-                    <p>Posted by u/{post.user.username}</p>
-                    <h1>{post.title}</h1>
-                    <p>{post.text}</p>
+                  <div className="subreddit-post-container">
+                    <h1 className="text-l">{post.title}</h1>
+                    <p className="text-s">Posted by u/{post.user.username}</p>
+                    <p className="text-m content">{post.text}</p>
                   </div>
                 </div>
               ))}

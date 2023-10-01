@@ -6,7 +6,7 @@ export default function DisplaySubreddits({ subreddits }) {
       <div className="display-subreddit">
         <h5>Trending Communities</h5>
         {subreddits.map((subreddit) => (
-          <div key={subreddit.id}>
+          <div className="hover" key={subreddit.id}>
             <Link to={`/subreddit/${subreddit.id}`}>r/{subreddit.name}</Link>
           </div>
         ))}
