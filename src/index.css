@@ -202,3 +202,16 @@ form {
   width: 70px;
   height: 30px;
 }
+
+/* comment input box */
+
+.comment-form {
+  margin-top: 0;
+  margin-left: 28px;
+}
+
+.comment-input {
+  height: 60px;
+  padding: 10px;
+  width: 200px;
+}

@@ -45,16 +45,19 @@ export default function CreateComment({ postId, subredditId, fetchChildren }) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter your comment.."
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-        {/* cheat backend sorryy */}
-        <input type="hidden" name="title" value={title} />
-        <button>Submit Comment</button>
+      <form className="comment-form" onSubmit={handleSubmit}>
+        <div>
+          <input
+            className="comment-input"
+            type="text"
+            placeholder="Enter your comment.."
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+          {/* cheat backend sorryy */}
+          <input type="hidden" name="title" value={title} />
+          <button>Submit Comment</button>
+        </div>
       </form>
       <p>{error}</p>
     </div>
