@@ -1,0 +1,149 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+/* NAV */
+.navbar-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 10px;
+}
+
+.navbar-flex-items {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+/* .orange .bold{
+  color: orangered;
+  background-color: orangered;
+} */
+
+.nav-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 200px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  padding: 20px;
+  margin-top: 100px;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-container {
+  display: flex;
+  justify-content: center;
+}
+
+.post-container {
+  display: grid;
+  grid-template-columns: 40px auto;
+  /* flex-direction: column; */
+  border: 2px solid black;
+  border-radius: 7px;
+  margin: 20px;
+  padding: 20px;
+  width: 450px;
+  gap: 10px;
+  align-items: start;
+}
+
+.grid-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.post-content {
+  margin: 10px 0;
+}
+
+.post-header {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+  font-size: 14px;
+}
+
+/* COMMENTS */
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  border: 2px solid blue;
+  border-radius: 7px;
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+}
+
+.comment-user {
+  font-size: 12px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.post-content {
+  margin-top: 10px;
+}
+
+.display-subreddit {
+  width: 170px;
+}
+/* APP.JSX */
+.app-container {
+  display: flex;
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+.sidebar {
+  width: fit-content;
+  flex-shrink: 0;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+/* 
+
