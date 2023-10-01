@@ -57,7 +57,7 @@ export default function DisplayPost({ post }) {
                   <DisplayComment
                     key={childPost.id}
                     text={childPost.text}
-                    // username={childPost.user.username}
+                    username={childPost.user.username}
                     children={childPost.children}
                     post={childPost.post}
                   />
