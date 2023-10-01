@@ -1,3 +1,11 @@
+function ChildPost({ child }) {
+  return (
+    <div className="child-post" key={child.id}>
+      {/* Render child comment content here */}
+      <p>{child.text}</p>
+    </div>
+  );
+}
 import { useOutletContext, Link, useParams } from "react-router-dom";
 import Votes from "./Votes";
 import { FaPencilAlt } from "react-icons/fa";
@@ -41,19 +49,21 @@ export default function DisplayPost({ post }) {
           <DeletePost post={post} />
         </div>
         <div>
-          {/* recursive fn to show children of children */}
-          {post.children &&
-            post.children.map((childPost) => {
-              return (
-                <DisplayComment
-                  key={childPost.id}
-                  text={childPost.text}
-                  username={childPost.user.username}
-                  children={childPost.children}
-                  post={childPost.post}
-                />
-              );
-            })}
+          <div>
+            {/* recursive fn to show children of children */}
+            {post.children &&
+              post.children.map((childPost) => {
+                return (
+                  <DisplayComment
+                    key={childPost.id}
+                    text={childPost.text}
+                    // username={childPost.user.username}
+                    children={childPost.children}
+                    post={childPost.post}
+                  />
+                );
+              })}
+          </div>
         </div>
       </div>
       {/* {post.children &&

@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { API } from "../lib";
+import CreateComment from "./CreateComment";
+import DisplayComment from "./DisplayComment";
 
 export default function DisplaySinglePost() {
   const { postId } = useParams();
@@ -10,35 +12,111 @@ export default function DisplaySinglePost() {
   async function fetchPost() {
     const res = await fetch(`${API}/posts/${postId}`);
     const info = await res.json();
-    // console.log(info.post);
     if (info.success) {
       setPost(info.post);
     }
   }
 
   useEffect(() => {
-    // console.log(postId);
-    // console.log(`${API}/posts/${postId}`);
     fetchPost();
-  }, []);
-
-  //   useEffect(() => {
-  //     console.log(post);
-  //   }, [post]);
+  });
 
   if (!post) return <p>Loading...</p>;
 
+  console.log(post);
+
   return (
-    <div className="post-container">
-      <div>
-        <p>🤮</p>
+    <>
+      <div className="post-container">
+        <div></div>
+        <div className="post-content">
+          <div className="post-header">r/{post.subreddit.name}</div>
+          <h1>{post.title}</h1>
+          <p>u/{post.user.username}</p>
+          <div>{post.text}</div>
+        </div>
+        <CreateComment
+          postId={postId}
+          subredditId={post.subreddit.id}
+          fetchChildren={fetchPost}
+        />
       </div>
-      <div className="post-content">
-        <div className="post-header">r/{post.subreddit.name}</div>
-        <div>{post.title}</div>
-        <p>u/{post.user.username}</p>
-        <div>{post.text}</div>
+      <div className="comments">
+        {post.children &&
+          post.children.map((comment) => (
+            <DisplayComment
+              key={comment.id}
+              text={comment.text}
+              // username={comment.user.username}
+              // children={comment.children}
+              post={comment.post}
+            />
+          ))}
       </div>
-    </div>
+    </>
   );
 }
+
+// import { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+// import { API } from "../lib";
+// import CreateComment from "./CreateComment";
+// import DisplayComment from "./DisplayComment";
+
+// export default function DisplaySinglePost() {
+//   const { postId } = useParams();
+
+//   const [post, setPost] = useState();
+//   const [isReplying, setIsReplying] = useState(false);
+
+//   async function fetchPost() {
+//     const res = await fetch(`${API}/posts/${postId}`);
+//     const info = await res.json();
+//     // console.log(info.post);
+//     if (info.success) {
+//       setPost(info.post);
+//     }
+//   }
+
+//   useEffect(() => {
+//     // console.log(postId);
+//     // console.log(`${API}/posts/${postId}`);
+//     fetchPost();
+//   }, []);
+
+//   //   useEffect(() => {
+//   //     console.log(post);
+//   //   }, [post]);
+
+//   if (!post) return <p>Loading...</p>;
+
+//   return (
+//     <>
+//       <div className="post-container">
+//         <div></div>
+//         <div className="post-content">
+//           <div className="post-header">r/{post.subreddit.name}</div>
+//           <h1>{post.title}</h1>
+//           <p>u/{post.user.username}</p>
+//           <div>{post.text}</div>
+//         </div>
+//         <CreateComment
+//           postId={postId}
+//           subredditId={post.subreddit.id}
+//           fetchChildren={fetchPost} // You should pass the appropriate function to fetch comments here
+//         />
+//       </div>
+//       <div className="comments">
+//         {post.comments &&
+//           post.comments.map((comment) => (
+//             <DisplayComment
+//               key={comment.id}
+//               text={comment.text}
+//               username={comment.user.username}
+//               children={comment.children}
+//             />
+//           ))}
+//       </div>
+//     </>
+//   );
+// }

@@ -1,6 +1,6 @@
 import { FaTrashAlt } from "react-icons/fa";
 import { useOutletContext } from "react-router-dom";
-import { API } from "../api";
+import { API } from "../lib";
 
 export default function DeleteSubreddit({ subreddit }) {
   const { token, fetchSubreddits, user } = useOutletContext();
