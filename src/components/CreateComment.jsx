@@ -40,8 +40,8 @@ export default function CreateComment({ postId, subredditId, fetchPost }) {
     setText("");
     fetchPost();
   }
-  console.log(text);
-  console.log("postId:", postId);
+  // console.log(text);
+  // console.log("postId:", postId);
   return (
     <div>
       <form className="comment-form" onSubmit={handleSubmit}>
