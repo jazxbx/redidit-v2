@@ -33,8 +33,8 @@ export default function Navbar({ user, setToken, setUser }) {
         {user.id && (
           <div className="nav-buttons">
             <span>Welcome u/{user.username}</span>
-            <button onClick={handleLogout} to={"/"}>
-              Logout
+            <button onClick={handleLogout}>
+              <Link to={"/"}>Logout</Link>
             </button>
             <Link to={"/create/post"}>
               <button>Create Post </button>
