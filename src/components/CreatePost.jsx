@@ -33,7 +33,7 @@ export default function CreatePost() {
       body: JSON.stringify({
         title,
         text,
-        parentId: parentId || null,
+        // parentId,
         subredditId: selectSubredditId,
       }),
     });
